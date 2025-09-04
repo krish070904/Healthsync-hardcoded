@@ -1,0 +1,9 @@
+name,serving_g,calories_per_100g,protein_g_per_100g,fat_g_per_100g,carbs_g_per_100g,tags
+Oats,100,389,16.9,6.9,66.3,vegetarian;gluten
+Milk (whole),100,61,3.2,3.3,4.8,dairy
+Apple,150,52,0.3,0.2,14,vegan;fruit
+Egg (boiled),50,155,13,11,1.1,vegetarian
+Chicken breast,100,165,31,3.6,0,meat;high-protein
+Brown rice,100,111,2.6,0.9,23,vegan;grain
+Broccoli,91,55,3.7,0.6,11.1,vegan;veg
+Peanut butter,32,588,25,50,20,vegan;nuts

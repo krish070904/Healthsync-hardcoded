@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthSync - Progress Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <style>
+        .progress-tab {
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px 5px 0 0;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-bottom: none;
+            margin-right: 5px;
+        }
+        
+        .progress-tab.active {
+            background-color: #fff;
+            border-bottom: 1px solid #fff;
+            margin-bottom: -1px;
+            font-weight: bold;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 0 5px 5px 5px;
+            background-color: #fff;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .health-report .card {
+            margin-bottom: 15px;
+        }
+        
+        .chart-container {
+            height: 300px;
+            margin-bottom: 20px;
+        }
+        
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Health Progress Tracker</h1>
+        
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="info-box">
+                    <h4>About Progress Tracking</h4>
+                    <p>Track your health metrics over time to identify trends and patterns. Log your weight, blood pressure, and blood sugar regularly to get personalized insights and recommendations.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8">
+                <!-- Tabs Navigation -->
+                <div class="d-flex mb-0">
+                    <div id="weight-tab" class="progress-tab">Weight</div>
+                    <div id="blood-pressure-tab" class="progress-tab">Blood Pressure</div>
+                    <div id="goals-tab" class="progress-tab">Goals</div>
+                    <div id="report-tab" class="progress-tab">Health Report</div>
+                </div>
+                
+                <!-- Tab Contents -->
+                <div class="tab-contents mb-4">
+                    <!-- Weight Tab -->
+                    <div id="weight-content" class="tab-content">
+                        <div class="mb-3">
+                            <label for="weight-time-range" class="form-label">Time Range:</label>
+                            <select id="weight-time-range" class="form-select time-range-selector" style="width: auto;">
+                                <option value="7">Last 7 days</option>
+                                <option value="30" selected>Last 30 days</option>
+                                <option value="90">Last 90 days</option>
+                                <option value="180">Last 6 months</option>
+                                <option value="365">Last year</option>
+                            </select>
+                        </div>
+                        
+                        <div id="weight-chart-container" class="chart-container">
+                            <div class="alert alert-info">Loading weight data...</div>
+                        </div>
+                        
+                        <div id="weight-insights">
+                            <!-- Weight insights will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Blood Pressure Tab -->
+                    <div id="blood-pressure-content" class="tab-content">
+                        <div class="mb-3">
+                            <label for="bp-time-range" class="form-label">Time Range:</label>
+                            <select id="bp-time-range" class="form-select time-range-selector" style="width: auto;">
+                                <option value="7">Last 7 days</option>
+                                <option value="30" selected>Last 30 days</option>
+                                <option value="90">Last 90 days</option>
+                                <option value="180">Last 6 months</option>
+                                <option value="365">Last year</option>
+                            </select>
+                        </div>
+                        
+                        <div id="bp-chart-container" class="chart-container">
+                            <div class="alert alert-info">Loading blood pressure data...</div>
+                        </div>
+                        
+                        <div id="bp-insights">
+                            <!-- Blood pressure insights will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Goals Tab -->
+                    <div id="goals-content" class="tab-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">Set Health Goal</div>
+                                    <div class="card-body">
+                                        <form id="goal-tracking-form">
+                                            <div class="mb-3">
+                                                <label for="goal-type-selector" class="form-label">Goal Type:</label>
+                                                <select id="goal-type-selector" class="form-select">
+                                                    <option value="weight">Weight</option>
+                                                    <option value="blood_sugar">Blood Sugar</option>
+                                                    <option value="blood_pressure">Blood Pressure</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label for="goal-target-value" class="form-label">Target Value:</label>
+                                                <input type="number" id="goal-target-value" class="form-control" placeholder="Target weight in kg" step="0.1" required>
+                                            </div>
+                                            
+                                            <button type="submit" class="btn btn-primary">Track Progress</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div id="goal-progress-container">
+                                    <div class="alert alert-info">Select a goal type and target value to track your progress.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Health Report Tab -->
+                    <div id="report-content" class="tab-content">
+                        <div id="health-report-container">
+                            <div class="alert alert-info">Loading comprehensive health report...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <!-- Log Progress Form -->
+                <div class="card">
+                    <div class="card-header">Log Your Progress</div>
+                    <div class="card-body">
+                        <form id="log-progress-form">
+                            <div class="mb-3">
+                                <label for="weight-input" class="form-label">Weight (kg):</label>
+                                <input type="number" id="weight-input" class="form-control" placeholder="Enter your weight" step="0.1">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="systolic-input" class="form-label">Blood Pressure (Systolic):</label>
+                                <input type="number" id="systolic-input" class="form-control" placeholder="Systolic (upper number)">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="diastolic-input" class="form-label">Blood Pressure (Diastolic):</label>
+                                <input type="number" id="diastolic-input" class="form-control" placeholder="Diastolic (lower number)">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="blood-sugar-input" class="form-label">Blood Sugar:</label>
+                                <input type="number" id="blood-sugar-input" class="form-control" placeholder="Blood sugar level" step="0.1">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="progress-notes" class="form-label">Notes:</label>
+                                <textarea id="progress-notes" class="form-control" rows="3" placeholder="Any additional notes about your health today"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-success w-100">Log Progress</button>
+                        </form>
+                        
+                        <div id="progress-log-message" class="mt-3">
+                            <!-- Success/error messages will appear here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tips Card -->
+                <div class="card mt-4">
+                    <div class="card-header">Health Tracking Tips</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Measure your weight at the same time each day, preferably in the morning after using the bathroom and before eating.</li>
+                            <li>For blood pressure, sit quietly for 5 minutes before measuring and avoid caffeine or exercise for 30 minutes prior.</li>
+                            <li>Log your measurements consistently to get the most accurate trends and insights.</li>
+                            <li>Set realistic health goals based on your doctor's recommendations.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="/static/js/progress-tracker.js"></script>
+    <script>
+        // Initialize the progress tracker when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get user ID from URL or session storage
+            // For demo purposes, we'll use a hardcoded user ID
+            const userId = '1'; // Replace with actual user ID retrieval logic
+            
+            // Initialize the progress tracker
+            ProgressTracker.init(userId);
+        });
+    </script>
+</body>
+</html>

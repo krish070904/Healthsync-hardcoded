@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthSync Email Verification</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+    :root {
+        --saffron: #F4C430;
+        --saffron-light: #F7D567;
+        --serenity-blue: #B3CDE0;
+        --white-glass: rgba(255, 255, 255, 0.5);
+        --border-color: rgba(255, 255, 255, 0.7);
+    }
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+    .glassmorphic {
+        background: var(--white-glass);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--border-color);
+    }
+</style>
+</head>
+<body class="bg-white text-gray-800">
+<div class="relative min-h-screen w-full overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full">
+<div class="absolute -top-40 -left-40 w-96 h-96 bg-[var(--saffron-light)] rounded-full opacity-50 blur-3xl"></div>
+<div class="absolute -bottom-40 -right-40 w-96 h-96 bg-[var(--serenity-blue)] rounded-full opacity-50 blur-3xl"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-[var(--saffron)] opacity-20 rounded-full blur-3xl"></div>
+</div>
+
+<main class="relative flex min-h-screen items-center justify-center p-4">
+<div class="w-full max-w-md space-y-8">
+<div class="glassmorphic rounded-2xl p-8 shadow-2xl">
+    <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-gray-800">Email Verification</h2>
+        <p class="mt-2 text-gray-600" id="verification-status">Verifying your email address...</p>
+    </div>
+    <div id="verification-spinner" class="flex justify-center my-8">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--saffron)]"></div>
+    </div>
+    <div id="verification-success" class="hidden text-center">
+        <svg class="mx-auto h-16 w-16 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <p class="mt-4 text-lg font-medium text-gray-800">Email verified successfully!</p>
+        <p class="mt-2 text-gray-600">You will be redirected to the login page shortly.</p>
+        <a href="login.html" class="mt-6 inline-block rounded-lg bg-[var(--saffron)] px-5 py-3 text-center text-sm font-medium text-white hover:bg-[var(--saffron-light)]">Go to Login</a>
+    </div>
+    <div id="verification-error" class="hidden text-center">
+        <svg class="mx-auto h-16 w-16 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+        <p class="mt-4 text-lg font-medium text-gray-800" id="error-message">Verification failed</p>
+        <p class="mt-2 text-gray-600">Please try again or contact support.</p>
+    </div>
+    <div class="mt-8 text-center">
+        <a id="login-link" href="login.html" class="hidden font-semibold text-[var(--saffron)] hover:text-[var(--saffron-light)]">Return to login</a>
+    </div>
+</div>
+</div>
+</main>
+</div>
+
+<script src="js/auth.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get email and token from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get('email');
+        const token = urlParams.get('token');
+        
+        // If email and token are present, attempt verification
+        if (email && token) {
+            document.getElementById('verification-status').textContent = 'Verifying your email...';
+            
+            // Call auth.verifyEmail method
+            auth.verifyEmail(email, token)
+                .then(success => {
+                    showSuccess();
+                    // Redirect to index page after 3 seconds
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 3000);
+                })
+                .catch(error => {
+                    showError(error.message);
+                });
+        } else {
+            // No email/token in URL, check if we're in pending verification state
+            const pendingEmail = sessionStorage.getItem('pending_verification_email');
+            
+            if (pendingEmail) {
+                document.getElementById('verification-spinner').classList.add('hidden');
+                document.getElementById('verification-status').textContent = 'Verification email sent';
+                
+                // Create a pending verification message
+                const pendingDiv = document.createElement('div');
+                pendingDiv.className = 'text-center my-8';
+                pendingDiv.innerHTML = `
+                    <svg class="mx-auto h-16 w-16 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                    </svg>
+                    <p class="mt-4 text-lg font-medium text-gray-800">Verification Required</p>
+                    <p class="mt-2 text-gray-600">We've sent a verification link to <strong>${pendingEmail}</strong></p>
+                    <p class="mt-2 text-gray-600">Please check your email and click the verification link.</p>
+                    <p class="mt-4 text-sm text-gray-500">(For demo purposes, check the browser console for the verification link)</p>
+                `;
+                
+                // Insert after the spinner
+                const spinnerElement = document.getElementById('verification-spinner');
+                spinnerElement.parentNode.insertBefore(pendingDiv, spinnerElement.nextSibling);
+                
+                // Show login link
+                document.getElementById('login-link').classList.remove('hidden');
+            } else {
+                // No pending verification, redirect to registration
+                window.location.href = 'registration.html';
+            }
+        }
+    });
+    
+    function showSuccess() {
+        document.getElementById('verification-spinner').classList.add('hidden');
+        document.getElementById('verification-success').classList.remove('hidden');
+        document.getElementById('verification-status').textContent = 'Email verified successfully!';
+    }
+    
+    function showError(message) {
+        document.getElementById('verification-spinner').classList.add('hidden');
+        document.getElementById('verification-error').classList.remove('hidden');
+        document.getElementById('error-message').textContent = message || 'Verification failed';
+        document.getElementById('login-link').classList.remove('hidden');
+        document.getElementById('verification-status').textContent = 'Verification failed';
+    }
+</script>
+</body>
+</html>

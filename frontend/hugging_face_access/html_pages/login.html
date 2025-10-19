@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthSync Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script src="js/include-components.js" defer></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --saffron: #F4C430;
+            --saffron-light: #F7D567;
+            --serenity-blue: #B3CDE0;
+            --white-glass: rgba(255, 255, 255, 0.5);
+            --border-color: rgba(255, 255, 255, 0.7);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glassmorphic {
+            background: var(--white-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+<div class="relative min-h-screen w-full overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full">
+<div class="absolute -top-40 -left-40 w-96 h-96 bg-[var(--saffron-light)] rounded-full opacity-50 blur-3xl"></div>
+<div class="absolute -bottom-40 -right-40 w-96 h-96 bg-[var(--serenity-blue)] rounded-full opacity-50 blur-3xl"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-[var(--saffron)] opacity-20 rounded-full blur-3xl"></div>
+</div>
+
+<main class="relative flex min-h-screen items-center justify-center p-4">
+<div class="w-full max-w-md space-y-8">
+<div class="glassmorphic rounded-2xl p-8 shadow-2xl">
+<div class="text-center mb-8">
+<h2 class="text-3xl font-bold text-gray-800">Welcome Back</h2>
+<p class="mt-2 text-gray-600">Sign in to continue your care journey.</p>
+</div>
+<form action="#" class="space-y-6" method="POST">
+<div>
+<label class="sr-only" for="email-address">Email address</label>
+<input autocomplete="email" class="form-input block w-full rounded-lg border-transparent bg-white/70 py-3 px-4 text-gray-800 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[var(--saffron)] transition" id="email-address" name="email" placeholder="Email address" required="" type="email"/>
+</div>
+<div>
+<label class="sr-only" for="password">Password</label>
+<input autocomplete="current-password" class="form-input block w-full rounded-lg border-transparent bg-white/70 py-3 px-4 text-gray-800 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[var(--saffron)] transition" id="password" name="password" placeholder="Password" required="" type="password"/>
+</div>
+<div class="flex items-center justify-between">
+<div class="text-sm">
+<a class="font-semibold text-gray-700 hover:text-[var(--saffron)]" href="#">Forgot password?</a>
+</div>
+</div>
+<div>
+<button class="flex w-full justify-center rounded-lg bg-[var(--saffron)] px-3 py-3 text-sm font-semibold leading-6 text-white shadow-lg hover:bg-[var(--saffron-light)] hover:text-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--saffron)] transition-all duration-300" type="submit">
+                                Sign In
+                            </button>
+</div>
+</form>
+<p class="mt-8 text-center text-sm text-gray-600">
+                        Not a member?
+                        <a class="font-semibold leading-6 text-gray-700 hover:text-[var(--saffron)]" href="registration.html">
+                            Register now
+                        </a>
+</p>
+</div>
+</div>
+</main>
+</div>
+
+<script src="js/auth.js"></script>
+<script>
+    // Check if user is already logged in
+    document.addEventListener('DOMContentLoaded', function() {
+        redirectIfAuthenticated();
+    });
+
+    // Handle login form submission
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('email-address').value;
+        const password = document.getElementById('password').value;
+        
+        auth.login(email, password)
+            .then(() => {
+                window.location.href = 'chat.html';
+            })
+            .catch(error => {
+                alert('Login failed: ' + error.message);
+            });
+    });
+</script>
+</body>
+</html>

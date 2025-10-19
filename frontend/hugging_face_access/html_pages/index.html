@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#faba42",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#231c0f",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="css/transitions.css">
+<script src="js/include-components.js" defer></script>
+<script src="js/page-transitions.js" defer></script>
+<script src="js/auth.js"></script>
+<style>
+        .gradient-mask {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="relative w-full overflow-x-hidden">
+<!-- Add navbar container -->
+<div id="navbar-container"></div>
+<!-- Landing page with navbar -->
+<script>
+    // Define includeComponent function directly
+    async function includeComponent(componentPath, targetId) {
+        const targetElement = document.getElementById(targetId);
+        if (!targetElement) return;
+        
+        try {
+            // Try to fetch from components directory first, then try html_pages/components as fallback
+            let response = await fetch(`/components/${componentPath}`);
+            
+            if (!response.ok) {
+                // Try alternate path
+                response = await fetch(`/html_pages/components/${componentPath}`);
+            }
+            
+            if (!response.ok) {
+                throw new Error(`Failed to load component: ${componentPath}`);
+            }
+            
+            const html = await response.text();
+            targetElement.innerHTML = html;
+        } catch (error) {
+            console.error('Error loading component:', error);
+        }
+    }
+
+    // Wait for DOM to be loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check authentication status
+        const auth = new Auth();
+        // Initialize authentication
+        auth.isAuthenticated = !!localStorage.getItem('healthsync_auth_token');
+        
+        // Always include navbar
+        includeComponent('navbar.html', 'navbar-container');
+        
+        if (auth.isAuthenticated) {
+            // Check if get-started-section exists before hiding
+            const getStartedSection = document.getElementById('get-started-section');
+            if (getStartedSection) {
+                getStartedSection.style.display = 'none';
+            }
+        }
+    });
+</script>
+<main class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="py-12 sm:py-16 lg:py-20">
+<div class="relative rounded-xl overflow-hidden shadow-2xl">
+<div class="absolute inset-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBe8IqJIQIYK--Ax_IT4xw7pkUK8JBjZgD-8AL1duMyCPTUyoAQGDBS3X7DpF4laClwIIIaa4c4K0UoPfHW4jjYch8ENFywxRs75QbB7Vx5Ptd_Ii2LT1-B8Q4qRVtIwL1D5ON99kcyzAbjIbkF5moOhmjXOPcI31vQ1FaXYVc_6xf2ylEcXgD4_TGXHTaKD9nr-hGeRztMt4P_9UHCa58h-JocdsZcb5LXKk7KnsL1RiTflrwUjzqsQYOAOHzIRRI_lqC1cjEiPJR5");'></div>
+<div class="absolute inset-0 gradient-mask"></div>
+<div class="relative min-h-[480px] flex flex-col justify-end p-6 sm:p-10 text-white">
+<div class="max-w-3xl">
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+                                Your Personalized Health Care Journey
+                            </h1>
+<p class="mt-4 text-base sm:text-lg max-w-2xl">
+                                We're here to support you every step of the way. Access personalized care plans, connect with specialists, and manage your health with ease.
+                            </p>
+<a href="registration.html" class="mt-8 inline-flex items-center justify-center rounded-lg h-12 px-6 bg-primary text-background-dark text-base font-bold tracking-wide hover:opacity-90 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+<span>Get Started</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<section class="py-12 sm:py-16 lg:py-20">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-3xl sm:text-4xl font-extrabold text-background-dark dark:text-background-light">
+                        Comprehensive Support for Your Well-being
+                    </h2>
+<p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                        Our app offers a range of features designed to enhance your cancer care experience, from personalized treatment plans to community support.
+                    </p>
+</div>
+<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+<div class="flex flex-col gap-4 rounded-lg border border-primary/20 dark:border-primary/30 bg-background-light dark:bg-background-dark p-6 text-left transition-all duration-300 hover:shadow-lg hover:border-primary/50 hover:transform hover:scale-105">
+<svg class="text-primary" fill="currentColor" height="32" viewBox="0 0 256 256" width="32" xmlns="http://www.w3.org/2000/svg">
+<path d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32ZM128,206.8C109.74,196.16,32,147.69,32,94A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,147.61,146.24,196.15,128,206.8Z"></path>
+</svg>
+<h3 class="text-xl font-bold text-background-dark dark:text-background-light">Personalized Care Plans</h3>
+<p class="text-gray-600 dark:text-gray-400">Receive tailored treatment plans based on your specific diagnosis and needs.</p>
+</div>
+<div class="flex flex-col gap-4 rounded-lg border border-primary/20 dark:border-primary/30 bg-background-light dark:bg-background-dark p-6 text-left transition-all duration-300 hover:shadow-lg hover:border-primary/50 hover:transform hover:scale-105">
+<svg class="text-primary" fill="currentColor" height="32" viewBox="0 0 256 256" width="32" xmlns="http://www.w3.org/2000/svg">
+<path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"></path>
+</svg>
+<h3 class="text-xl font-bold text-background-dark dark:text-background-light">Connect with Specialists</h3>
+<p class="text-gray-600 dark:text-gray-400">Access a network of experienced oncologists, therapists, and support staff.</p>
+</div>
+<div class="flex flex-col gap-4 rounded-lg border border-primary/20 dark:border-primary/30 bg-background-light dark:bg-background-dark p-6 text-left transition-all duration-300 hover:shadow-lg hover:border-primary/50 hover:transform hover:scale-105">
+<svg class="text-primary" fill="currentColor" height="32" viewBox="0 0 256 256" width="32" xmlns="http://www.w3.org/2000/svg">
+<path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-96-88v64a8,8,0,0,1-16,0V132.94l-4.42,2.22a8,8,0,0,1-7.16-14.32l16-8A8,8,0,0,1,112,120Zm59.16,30.45L152,176h16a8,8,0,0,1,0,16H136a8,8,0,0,1-6.4-12.8l28.78-38.37A8,8,0,1,0,145.07,132a8,8,0,1,1-13.85-8A24,24,0,0,1,176,136,23.76,23.76,0,0,1,171.16,150.45Z"></path>
+</svg>
+<h3 class="text-xl font-bold text-background-dark dark:text-background-light">Manage Appointments</h3>
+<p class="text-gray-600 dark:text-gray-400">Easily schedule and manage your appointments, ensuring you never miss a critical step in your care.</p>
+</div>
+</div>
+</section>
+<section class="py-12 sm:py-16 lg:py-20">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-3xl sm:text-4xl font-extrabold text-background-dark dark:text-background-light">
+                        Empowering You Through Every Stage
+                    </h2>
+<p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                        Our app provides tools and resources to help you navigate your cancer journey with confidence and support.
+                    </p>
+</div>
+<div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+<div class="flex flex-col gap-4">
+<div class="w-full aspect-video bg-cover bg-center rounded-lg shadow-lg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD0vwOXXSrAnlA22PEXkUYSxy6xfxTInTI0ALyv4SNMAH0Vh9ahBRiZ_1V4IjQtKSOwIVIXrJYUSKUmmZfoHJ1JkkfVtGctGpa9N7xZgeTNB7Iaeh4OvOXeYQf65nKh809lUSLWj8Ef95B1Yo1_vL0vCKnru9Vc-o88e4EYi1l65lXgkl4nylqLFwSf11Z2_8j3cbE3H9gOJomcF1Qs21BvXmFuddsVqLmVeX7C4eA26d1ojxSRja2Y2CEf-7eb0PMSoCLPn-21WxR6");'></div>
+<div>
+<h3 class="text-xl font-bold text-background-dark dark:text-background-light">Track Your Progress</h3>
+<p class="mt-2 text-gray-600 dark:text-gray-400">Monitor your treatment progress, track symptoms, and stay informed about your health.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="w-full aspect-video bg-cover bg-center rounded-lg shadow-lg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDy-9iIF5oSa2d3nF3oSUV7JCbnovyEDEx494uqWsQWQDOFj9JrAxUp0Bfi2ztwpESRKzEzrgtR_roFEcO3E1Uv3SIab0mjNFmgjqr762sPgMn3hENZQ66iqITCWBb4p5mRHfBy2-y7NgVnCG2CYum6IQTMtXdMdmc1GjsIinV-0cL8JcGzFGhJwRGVyJsra6pQay1lkEEh523MwJgeAjXpyXW0al8d1gIBSHF5lJvg_CoXh_88WM9ullccO_C2AyxF3LbbXu1JifaT");'></div>
+<div>
+<h3 class="text-xl font-bold text-background-dark dark:text-background-light">Access Resources</h3>
+<p class="mt-2 text-gray-600 dark:text-gray-400">Access a library of educational materials, articles, and tips for managing your care.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="w-full aspect-video bg-cover bg-center rounded-lg shadow-lg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA-OCzQ4-PMIMiJvqI_m2aXAw91Vexbk_0EtPGsrECzjfhcgTYf6sgK6Bm8BXoDOI_kEuqzPTZxS4_IAEPEHQ6PCji_T8JdQfH_XhYFIlc-wRfRnOkeGVmh8dB7EArlBxZS6IIm2Wy03RDm3A-bH9T6c-1VZaXcAFXf_NxzT2-UazG3ThMXzlPf2lMW5YwSoKeyP-2B2nLfS-s2k-ZjgpN0TFJCaqo-rw64D85VC9-VuPMBv3PnQkZceM3x97Kk6ay0BvVqZfZ7NSOE");'></div>
+<div>
+<h3 class="text-xl font-bold text-background-dark dark:text-background-light">Join Support Groups</h3>
+<p class="mt-2 text-gray-600 dark:text-gray-400">Connect with other patients, share experiences, and find support in a caring community.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-12 sm:py-16 lg:py-20">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="text-3xl sm:text-4xl font-extrabold text-background-dark dark:text-background-light">
+                        Take Control of Your Health
+                    </h2>
+<p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                        Begin your journey towards better health and well-being.
+                    </p>
+<div class="mt-8 flex justify-center">
+<button class="inline-flex items-center justify-center rounded-lg h-12 px-6 bg-primary text-background-dark text-base font-bold tracking-wide hover:opacity-90 transition-opacity">
+<span class="truncate">Get Started</span>
+</button>
+</div>
+</div>
+</section>
+<footer class="border-t border-primary/20 dark:border-primary/30 py-10">
+<div class="flex flex-col items-center gap-8">
+<div class="flex flex-wrap justify-center gap-x-6 gap-y-4">
+<a class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+<div class="flex justify-center gap-6">
+<a class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"></path>
+</svg>
+</a>
+<a class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+</svg>
+</a>
+<a class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"></path>
+</svg>
+</a>
+</div>
+<p class="text-gray-600 dark:text-gray-400 text-sm">© 2023 HealthApp. All rights reserved.</p>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

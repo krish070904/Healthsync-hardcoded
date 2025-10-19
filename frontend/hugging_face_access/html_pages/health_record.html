@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+    :root {
+      --primary: #faba42;
+      --primary-500: #faba42;
+      --primary-600: #e9a930;
+      --secondary-400: #FFD700;
+      --secondary-500: #FFC700;
+      --text-primary: #1A2E35;
+      --text-secondary: #5A6D72;
+      --accent-warm: #FF8A65;
+      --background-light: #f8f7f5;
+      --background-dark: #231c0f;
+      --gradient-primary-bg-start: #f8f7f5;
+      --gradient-primary-bg-end: #FFFFFF;
+      --gradient-secondary-bg-start: #FFF9E6;
+      --gradient-secondary-bg-end: #FFFFFF;
+      --gradient-button-start: #faba42;
+      --gradient-button-end: #e9a930;
+    }
+    .bg-gradient-primary-bg {
+      background-image: linear-gradient(to bottom, var(--gradient-primary-bg-start), var(--gradient-primary-bg-end));
+    }
+    .dark .dark\:bg-gradient-primary-bg-dark {
+      background-image: linear-gradient(to bottom, #1A2E35, #121A1C);
+    }
+    .bg-gradient-button {
+        background-image: linear-gradient(to right, var(--gradient-button-start), var(--gradient-button-end));
+    }
+    </style>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": {
+              "500": "var(--primary-500)",
+              "600": "var(--primary-600)"
+            },
+            "secondary": {
+              "400": "var(--secondary-400)",
+              "500": "var(--secondary-500)"
+            },
+            "text-primary": "var(--text-primary)",
+            "text-secondary": "var(--text-secondary)",
+            "accent-warm": "var(--accent-warm)",
+            "background-light": "var(--background-light)",
+            "background-dark": "var(--background-dark)",
+            "gradient-primary-bg-start": "var(--gradient-primary-bg-start)",
+            "gradient-primary-bg-end": "var(--gradient-primary-bg-end)",
+            "gradient-secondary-bg-start": "var(--gradient-secondary-bg-start)",
+            "gradient-secondary-bg-end": "var(--gradient-secondary-bg-end)",
+            "gradient-button-start": "var(--gradient-button-start)",
+            "gradient-button-end": "var(--gradient-button-end)",
+          },
+          fontFamily: {
+            "display": ["Inter"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link rel="stylesheet" href="css/transitions.css">
+<script src="js/include-components.js" defer></script>
+<script src="js/page-transitions.js" defer></script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-primary dark:text-background-light">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Include the navbar component -->
+<div data-component="navbar"></div>
+<div class="flex h-full grow">
+<aside class="sticky top-0 h-screen w-80 flex-shrink-0 bg-gradient-primary-bg dark:dark:bg-gradient-primary-bg-dark p-6">
+<div class="flex h-full flex-col justify-between">
+<div class="flex flex-col gap-8">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCy1m5noGiv9FHrrX-k296IKs3drkUt0piR21kYEREtwNeOMbbeGdctWbfNst6J1O-34rSCdh88kFsrPGt2UySn01z0Xb1gDOzoQIY3hk-82_ds5oH8615kFe1k85DbAYb2kuRySjQ5Dj1ZB-3S-yTxQ-2hp4ZfmkwK-_fmzD9DVtNUWPvqbVynKhSkvv_yHB4EWhZeUQNjefosudS8-YBzS-dpK6X5z5FnvUZmuPeauWxhOd2ricBB3gKh3N7uqWbF88FA-8jjlG6R");'></div>
+<div class="flex flex-col">
+<h1 class="text-text-primary dark:text-white text-base font-bold">Sophia Clark</h1>
+<p class="text-text-secondary dark:text-white/60 text-sm">Patient</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-500/10 text-primary-500" href="#">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M224,115.55V208a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V168a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v40a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V115.55a16,16,0,0,1,5.17-11.78l80-75.48.11-.11a16,16,0,0,1,21.53,0,1.14,1.14,0,0,0,.11.11l80,75.48A16,16,0,0,1,224,115.55Z"></path>
+</svg>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-secondary dark:text-white/80 hover:bg-primary-500/5 dark:hover:bg-primary-500/10 transition-all duration-300 hover:transform hover:translate-x-1" href="#">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"></path>
+</svg>
+<span class="text-sm font-medium">Care Team</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-secondary dark:text-white/80 hover:bg-primary-500/5 dark:hover:bg-primary-500/10" href="#">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M184,32H72A16,16,0,0,0,56,48V224a8,8,0,0,0,12.24,6.78L128,193.43l59.77,37.35A8,8,0,0,0,200,224V48A16,16,0,0,0,184,32Zm0,16V161.57l-51.77-32.35a8,8,0,0,0-8.48,0L72,161.56V48ZM132.23,177.22a8,8,0,0,0-8.48,0L72,209.57V180.43l56-35,56,35v29.14Z"></path>
+</svg>
+<span class="text-sm font-medium">Resources</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-secondary dark:text-white/80 hover:bg-primary-500/5 dark:hover:bg-primary-500/10" href="#">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"></path>
+</svg>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-secondary dark:text-white/80 hover:bg-primary-500/5 dark:hover:bg-primary-500/10" href="#">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path>
+</svg>
+<span class="text-sm font-medium">Profile</span>
+</a>
+</nav>
+</div>
+</div>
+</aside>
+<main class="flex-1 bg-background-light dark:bg-background-dark p-8 grid grid-cols-12 gap-8">
+<!-- User Profile Form -->
+<div class="col-span-12 bg-white dark:bg-black/20 rounded-xl p-8 shadow-sm mb-8 transform transition-all duration-500 ease-in-out" id="profileFormContainer">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-2xl font-bold text-text-primary dark:text-white">Your Health Profile</h2>
+    <button id="editProfileBtn" class="bg-primary hover:bg-primary-600 text-white px-5 py-3 rounded-lg transition-all duration-300 flex items-center gap-2">
+      <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+      </svg>
+      Edit Profile
+    </button>
+  </div>
+  
+  <div id="profileDisplay" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Profile info will be displayed here -->
+    <p class="text-center col-span-1 md:col-span-2 text-text-secondary dark:text-white/60">Please complete your profile for personalized health tracking</p>
+  </div>
+  
+  <form id="profileForm" class="hidden space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label class="block text-sm font-medium text-text-primary dark:text-white mb-2" for="name">Full Name</label>
+        <input class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-black/30 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500" id="name" name="name" placeholder="Your full name" type="text">
+      </div>
+      
+      <div>
+        <label class="block text-sm font-medium text-text-primary dark:text-white mb-2" for="age">Age</label>
+        <input class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-black/30 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500" id="age" name="age" placeholder="Your age" type="number">
+      </div>
+      
+      <div>
+        <label class="block text-sm font-medium text-text-primary dark:text-white mb-2" for="gender">Gender</label>
+        <select class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-black/30 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500" id="gender" name="gender">
+          <option value="">Select gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="non-binary">Non-binary</option>
+          <option value="prefer-not-to-say">Prefer not to say</option>
+        </select>
+      </div>
+      
+      <div>
+        <label class="block text-sm font-medium text-text-primary dark:text-white mb-2" for="height">Height (cm)</label>
+        <input class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-black/30 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500" id="height" name="height" placeholder="Your height in cm" type="number">
+      </div>
+      
+      <div>
+        <label class="block text-sm font-medium text-text-primary dark:text-white mb-2" for="weight">Weight (kg)</label>
+        <input class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-black/30 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500" id="weight" name="weight" placeholder="Your weight in kg" type="number">
+      </div>
+      
+      <div>
+        <label class="block text-sm font-medium text-text-primary dark:text-white mb-2" for="diet">Dietary Preference</label>
+        <select class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-black/30 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500" id="diet" name="diet">
+          <option value="">Select preference</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="vegan">Vegan</option>
+          <option value="non-vegetarian">Non-vegetarian</option>
+          <option value="pescatarian">Pescatarian</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      
+      <div>
+        <label class="block text-sm font-medium text-text-primary dark:text-white mb-2" for="activity">Activity Level</label>
+        <select class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-black/30 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500" id="activity" name="activity">
+          <option value="">Select level</option>
+          <option value="sedentary">Sedentary (little to no exercise)</option>
+          <option value="light">Light (1-3 days/week)</option>
+          <option value="moderate">Moderate (3-5 days/week)</option>
+          <option value="active">Active (6-7 days/week)</option>
+          <option value="very-active">Very Active (twice daily)</option>
+        </select>
+      </div>
+      
+      <div class="col-span-1 md:col-span-2">
+        <label class="block text-sm font-medium text-text-primary dark:text-white mb-2" for="existingConditions">Existing Medical Conditions</label>
+        <textarea class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-black/30 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500" id="existingConditions" name="existingConditions" placeholder="List any existing medical conditions (separated by commas)" rows="3"></textarea>
+      </div>
+      
+      <div class="col-span-1 md:col-span-2">
+        <label class="block text-sm font-medium text-text-primary dark:text-white mb-2" for="fitnessGoals">Fitness Goals</label>
+        <textarea class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-black/30 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500" id="fitnessGoals" name="fitnessGoals" placeholder="Describe your fitness goals" rows="3"></textarea>
+      </div>
+    </div>
+    
+    <div class="flex justify-end gap-4">
+      <button class="bg-gray-200 dark:bg-white/10 hover:bg-gray-300 dark:hover:bg-white/20 text-text-primary dark:text-white px-4 py-2 rounded-lg transition-all duration-300" id="cancelProfileBtn" type="button">Cancel</button>
+      <button class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition-all duration-300" id="saveProfileBtn" type="submit">Save Profile</button>
+    </div>
+  </form>
+</div>
+
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<div>
+<h1 class="text-4xl font-bold text-text-primary dark:text-white">Health Records</h1>
+<p class="text-text-secondary dark:text-white/60">Your central source of truth for past health data</p>
+</div>
+<div class="bg-white dark:bg-black/20 rounded-xl p-4 flex flex-col xl:flex-row items-center gap-4 shadow-sm">
+<div class="w-full xl:w-2/5 aspect-video bg-cover bg-center rounded-lg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAa03wxSfYFCEBp-Ofddgyn6UmA1kD8Q8WpQM4tEpHG42ziKPh7lAGMUKX-0pY6GQGxrmWYkCHTsZ11O9G2NjsyIaNM8j-MSTeGGMIYBXFC_830A6ubxMxkgcEwgZl_K9DhiPm6RIXRHyCcE_gyqxf69GAV9F-Jzd92csjKRUXN0FDDwEm0gnp7_b7Ec-2_z-WK5AlaaBrFGI2wTkK-wveyIzuMRszAmzRc4oCSSrrQ72KJJkalNoqx7nZNbN5GODjEK1iQVYOxnHWg");'></div>
+<div class="w-full xl:w-3/5">
+<p class="text-lg font-bold text-text-primary dark:text-white">Health Snapshot</p>
+<div class="flex items-center justify-between">
+<p class="text-base text-text-secondary dark:text-white/60">A summary of your recent health data</p>
+<button id="downloadAllLogsBtn" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-gradient-button text-white text-sm font-medium hover:opacity-90 transition-opacity">
+<span class="truncate">Download Logs</span>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white dark:bg-black/20 rounded-xl p-6 shadow-sm">
+<h2 class="text-xl font-bold text-text-primary dark:text-white mb-4">Activity Timeline</h2>
+<div class="space-y-4">
+<div class="grid grid-cols-[auto_1fr] gap-x-4">
+<div class="flex flex-col items-center">
+<div class="text-primary-500"><svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M232,128a104,104,0,0,1-208,0c0-41,23.81-78.36,60.66-95.27a8,8,0,0,1,6.68,14.54C60.15,61.59,40,93.27,40,128a88,88,0,0,0,176,0c0-34.73-20.15-66.41-51.34-80.73a8,8,0,0,1,6.68-14.54C208.19,49.64,232,87,232,128Z"></path>
+</svg></div>
+<div class="w-px bg-primary-500/20 flex-grow"></div>
+</div>
+<div>
+<p class="text-text-primary dark:text-white font-medium">Symptom Log: Fatigue</p>
+<p class="text-sm text-text-secondary dark:text-white/60">2 days ago</p>
+</div>
+</div>
+<div class="grid grid-cols-[auto_1fr] gap-x-4">
+<div class="flex flex-col items-center">
+<div class="w-px bg-primary-500/20 h-4"></div>
+<div class="text-primary-500"><svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM84,116a12,12,0,1,0,12,12A12,12,0,0,0,84,116Zm88,0a12,12,0,1,0,12,12A12,12,0,0,0,172,116Zm60,12A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.53a7.85,7.85,0,0,1,2.53-.42,8,8,0,0,1,4,1.08A88,88,0,0,0,216,128Z"></path>
+</svg></div>
+<div class="w-px bg-primary-500/20 flex-grow"></div>
+</div>
+<div>
+<p class="text-text-primary dark:text-white font-medium">Chat Log: Dr. Evelyn Reed</p>
+<p class="text-sm text-text-secondary dark:text-white/60">3 days ago</p>
+</div>
+</div>
+<div class="grid grid-cols-[auto_1fr] gap-x-4">
+<div class="flex flex-col items-center">
+<div class="w-px bg-primary-500/20 h-4"></div>
+<div class="text-primary-500"><svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M232,128a104,104,0,0,1-208,0c0-41,23.81-78.36,60.66-95.27a8,8,0,0,1,6.68,14.54C60.15,61.59,40,93.27,40,128a88,88,0,0,0,176,0c0-34.73-20.15-66.41-51.34-80.73a8,8,0,0,1,6.68-14.54C208.19,49.64,232,87,232,128Z"></path>
+</svg></div>
+<div class="w-px bg-primary-500/20 flex-grow"></div>
+</div>
+<div>
+<p class="text-text-primary dark:text-white font-medium">Symptom Log: Nausea</p>
+<p class="text-sm text-text-secondary dark:text-white/60">4 days ago</p>
+</div>
+</div>
+<div class="grid grid-cols-[auto_1fr] gap-x-4">
+<div class="flex flex-col items-center">
+<div class="w-px bg-primary-500/20 h-4"></div>
+<div class="text-primary-500"><svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M224,104h-8.37a88,88,0,0,0-175.26,0H32a8,8,0,0,0-8,8,104.35,104.35,0,0,0,56,92.28V208a16,16,0,0,0,16,16h64a16,16,0,0,0,16-16v-3.72A104.35,104.35,0,0,0,232,112,8,8,0,0,0,224,104Zm-24.46,0H148.12a71.84,71.84,0,0,1,41.27-29.57A71.45,71.45,0,0,1,199.54,104ZM173.48,56.23q2.75,2.25,5.27,4.75a87.92,87.92,0,0,0-49.15,43H100.1A72.26,72.26,0,0,1,168,56C169.83,56,171.66,56.09,173.48,56.23ZM128,40a71.87,71.87,0,0,1,19,2.57A88.36,88.36,0,0,0,83.33,104H56.46A72.08,72.08,0,0,1,128,40Zm36.66,152A8,8,0,0,0,160,199.3V208H96v-8.7A8,8,0,0,0,91.34,192a88.29,88.29,0,0,1-51-72H215.63A88.29,88.29,0,0,1,164.66,192Z"></path>
+</svg></div>
+<div class="w-px bg-primary-500/20 flex-grow"></div>
+</div>
+<div>
+<p class="text-text-primary dark:text-white font-medium">Nutrition Log: Breakfast</p>
+<p class="text-sm text-text-secondary dark:text-white/60">5 days ago</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-black/20 rounded-xl p-6 shadow-sm">
+<h2 class="text-xl font-bold text-text-primary dark:text-white mb-4">Trends</h2>
+<div class="space-y-6">
+<div class="rounded-lg border border-gray-200 dark:border-white/10 p-4">
+<p class="text-base font-medium text-text-primary dark:text-white">Symptom Trends</p>
+<p class="text-3xl font-bold text-text-primary dark:text-white">Moderate</p>
+<div class="flex items-center gap-1 text-sm">
+<p class="text-text-secondary dark:text-white/60">Last 7 Days</p>
+<p class="font-medium text-accent-warm">+10%</p>
+</div>
+<div class="mt-4 h-36">
+<svg fill="none" height="100%" preserveAspectRatio="none" viewBox="0 0 472 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V149H0V109Z" fill="url(#paint0_linear_chart)"></path>
+<path class="stroke-primary-500" d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25" stroke-linecap="round" stroke-width="3"></path>
+<defs>
+<linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_chart" x1="236" x2="236" y1="1" y2="149">
+<stop stop-color="#00A99D" stop-opacity="0.2"></stop>
+<stop offset="1" stop-color="#00A99D" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+</svg>
+</div>
+</div>
+<div class="rounded-lg border border-gray-200 dark:border-white/10 p-4">
+<p class="text-base font-medium text-text-primary dark:text-white">Nutrition Trends</p>
+<p class="text-3xl font-bold text-text-primary dark:text-white">Balanced</p>
+<div class="flex items-center gap-1 text-sm">
+<p class="text-text-secondary dark:text-white/60">Last 7 Days</p>
+<p class="font-medium text-primary-500">-5%</p>
+</div>
+<div class="mt-4 h-36 grid grid-cols-7 gap-2 items-end">
+<div class="bg-secondary-400 rounded-t-sm" style="height: 80%;"></div>
+<div class="bg-secondary-400 rounded-t-sm" style="height: 20%;"></div>
+<div class="bg-secondary-400 rounded-t-sm" style="height: 10%;"></div>
+<div class="bg-secondary-400 rounded-t-sm" style="height: 30%;"></div>
+<div class="bg-secondary-400 rounded-t-sm" style="height: 100%;"></div>
+<div class="bg-secondary-400 rounded-t-sm" style="height: 90%;"></div>
+<div class="bg-secondary-400 rounded-t-sm" style="height: 50%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-black/20 rounded-xl overflow-hidden shadow-sm">
+<h2 class="text-xl font-bold text-text-primary dark:text-white p-6">Entries</h2>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="border-b border-gray-200 dark:border-white/10">
+<tr>
+<th class="px-6 py-3 text-sm font-medium text-text-secondary dark:text-white/60">Date</th>
+<th class="px-6 py-3 text-sm font-medium text-text-secondary dark:text-white/60">Type</th>
+<th class="px-6 py-3 text-sm font-medium text-text-secondary dark:text-white/60">Details</th>
+<th class="px-6 py-3 text-sm font-medium text-text-secondary dark:text-white/60">Action</th>
+</tr>
+</thead>
+<tbody id="healthRecordsTableBody">
+<tr class="border-b border-gray-100 dark:border-white/5">
+<td class="px-6 py-4 text-sm text-text-primary dark:text-white">2024-07-20</td>
+<td class="px-6 py-4 text-sm text-text-primary dark:text-white">Symptom Log</td>
+<td class="px-6 py-4 text-sm text-text-primary dark:text-white">Fatigue, Moderate</td>
+<td class="px-6 py-4 text-sm">
+  <button class="view-details-btn bg-primary-500 text-white px-3 py-1 rounded text-xs" data-date="2024-07-20" data-type="Symptom Log" data-details="Fatigue, Moderate">View Details</button>
+</td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-white/5">
+<td class="px-6 py-4 text-sm text-text-primary dark:text-white">2024-07-19</td>
+<td class="px-6 py-4 text-sm text-text-primary dark:text-white">Chat Log</td>
+<td class="px-6 py-4 text-sm text-text-primary dark:text-white">Dr. Evelyn Reed, Follow-up</td>
+<td class="px-6 py-4 text-sm">
+  <button class="view-details-btn bg-primary-500 text-white px-3 py-1 rounded text-xs" data-date="2024-07-19" data-type="Chat Log" data-details="Dr. Evelyn Reed, Follow-up">View Details</button>
+</td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-white/5">
+<td class="px-6 py-4 text-sm text-text-primary dark:text-white">2024-07-18</td>
+<td class="px-6 py-4 text-sm text-text-primary dark:text-white">Symptom Log</td>
+<td class="px-6 py-4 text-sm text-text-primary dark:text-white">Nausea, Mild</td>
+<td class="px-6 py-4 text-sm">
+  <button class="view-details-btn bg-primary-500 text-white px-3 py-1 rounded text-xs" data-date="2024-07-18" data-type="Symptom Log" data-details="Nausea, Mild">View Details</button>
+</td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-white/5">
+<td class="px-6 py-4 text-sm text-text-primary dark:text-white">2024-07-17</td>
+<td class="px-6 py-4 text-sm text-text-primary dark:text-white">Nutrition Log</td>
+<td class="px-6 py-4 text-sm text-text-primary dark:text-white">Breakfast, Oatmeal</td>
+<td class="px-6 py-4 text-sm">
+  <button class="view-details-btn bg-primary-500 text-white px-3 py-1 rounded text-xs" data-date="2024-07-17" data-type="Nutrition Log" data-details="Breakfast, Oatmeal">View Details</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm text-text-primary dark:text-white">2024-07-16</td>
+<td class="px-6 py-4 text-sm text-text-primary dark:text-white">Symptom Log</td>
+<td class="px-6 py-4 text-sm text-text-primary dark:text-white">Pain, Low</td>
+<td class="px-6 py-4 text-sm">
+  <button class="view-details-btn bg-primary-500 text-white px-3 py-1 rounded text-xs" data-date="2024-07-16" data-type="Symptom Log" data-details="Pain, Low">View Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- BioMistral AI Health Insights -->
+<div class="bg-white dark:bg-black/20 rounded-xl p-8 shadow-sm">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-2xl font-bold text-text-primary dark:text-white">BioMistral Health Insights</h2>
+    <div class="text-sm text-text-secondary dark:text-white/60">
+      <span class="font-medium">Auto-updated</span>
+    </div>
+  </div>
+  
+  <div id="symptomsList" class="space-y-3 max-h-60 overflow-y-auto mb-4">
+    <!-- Symptoms will be dynamically added here -->
+    <p id="noSymptomsMessage" class="text-center text-text-secondary dark:text-white/60">No symptoms recorded yet</p>
+  </div>
+  
+  <div id="symptomForm" class="hidden space-y-4 border-t border-gray-200 dark:border-white/10 pt-4">
+    <div>
+      <label class="block text-sm font-medium text-text-primary dark:text-white mb-2" for="symptomName">Symptom</label>
+      <input class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-black/30 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500" id="symptomName" placeholder="e.g. Headache, Fever, etc." type="text">
+    </div>
+    
+    <div>
+      <label class="block text-sm font-medium text-text-primary dark:text-white mb-2" for="symptomSeverity">Severity</label>
+      <div class="flex items-center gap-2">
+        <input class="w-full" id="symptomSeverity" max="10" min="1" type="range" value="5">
+        <span id="severityValue" class="text-sm font-medium text-text-primary dark:text-white">5</span>
+      </div>
+    </div>
+    
+    <div>
+      <label class="block text-sm font-medium text-text-primary dark:text-white mb-2" for="symptomNotes">Notes</label>
+      <textarea class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-black/30 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500" id="symptomNotes" placeholder="Additional details about your symptom" rows="2"></textarea>
+    </div>
+    
+    <div class="flex justify-end gap-2">
+      <button class="bg-gray-200 dark:bg-white/10 hover:bg-gray-300 dark:hover:bg-white/20 text-text-primary dark:text-white px-3 py-1 rounded-lg text-sm transition-all duration-300" id="cancelSymptomBtn" type="button">Cancel</button>
+      <button class="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1 rounded-lg text-sm transition-all duration-300" id="saveSymptomBtn" type="button">Save</button>
+    </div>
+  </div>
+  
+  <div id="symptomSummary" class="border-t border-gray-200 dark:border-white/10 pt-4 mt-4">
+    <h3 class="text-base font-medium text-text-primary dark:text-white mb-2">Doctor's Summary</h3>
+    <p id="symptomSummaryText" class="text-sm text-text-secondary dark:text-white/60 italic">Complete your symptom tracking to generate a summary for your doctor.</p>
+  </div>
+</div>
+
+<div class="bg-gradient-secondary-bg-start dark:bg-black/20 rounded-xl p-6 shadow-sm">
+<h2 class="text-xl font-bold text-text-primary dark:text-white mb-4">Insights</h2>
+<div class="space-y-4 text-sm text-text-secondary dark:text-white/80">
+<p>Your fatigue levels have been consistently moderate over the past week. Consider discussing this with your care team.</p>
+<p>Your nutrition intake has been balanced, but consider adding more protein to your diet.</p>
+<p>Remember to log your symptoms and nutrition regularly for accurate tracking.</p>
+</div>
+</div>
+</div>
+</main>
+
+<!-- Add data component for navbar -->
+<div data-component="navbar.html"></div>
+
+</div>
+</div>
+
+<script src="../js/include-components.js"></script>
+<script src="../js/page-transitions.js"></script>
+
+<script>
+  // Function to fetch health records
+  async function fetchHealthRecords() {
+    try {
+      // Try to fetch from API first
+      try {
+        const response = await fetch('http://localhost:4000/health-record', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch health records');
+        }
+        
+        const data = await response.json();
+        return data;
+      } catch (apiError) {
+        // If API fails, return fallback data
+        console.log('Using fallback health records data');
+        return {
+          entries: [
+            { date: '2024-07-20', type: 'Symptom Log', details: 'Fatigue, Moderate' },
+            { date: '2024-07-19', type: 'Chat Log', details: 'Dr. Evelyn Reed, Follow-up' },
+            { date: '2024-07-18', type: 'Symptom Log', details: 'Nausea, Mild' }
+          ]
+        };
+      }
+    } catch (error) {
+      console.error('Error in fetchHealthRecords:', error);
+      return null;
+    }
+  }
+  
+  // Load user profile from localStorage
+  function loadUserProfile() {
+    const profile = JSON.parse(localStorage.getItem('userProfile')) || {};
+    
+    // Update form fields with saved data
+    if (profile) {
+      Object.keys(profile).forEach(key => {
+        const field = document.getElementById(key);
+        if (field) {
+          field.value = profile[key];
+        }
+      });
+    }
+    
+    // Update profile display
+    updateProfileDisplay(profile);
+  }
+
+  // Update profile display with user data
+  function updateProfileDisplay(profile) {
+    const profileDisplay = document.getElementById('profileDisplay');
+    if (!profileDisplay) return;
+    
+    if (!profile || Object.keys(profile).length === 0 || !profile.name) {
+      profileDisplay.innerHTML = `
+        <p class="text-center col-span-1 md:col-span-2 text-text-secondary dark:text-white/60">
+          Please complete your profile for personalized health tracking
+        </p>
+      `;
+      return;
+    }
+    
+    // Calculate BMI if height and weight are available
+    let bmiInfo = '';
+    if (profile.height && profile.weight) {
+      const heightInMeters = profile.height / 100;
+      const bmi = (profile.weight / (heightInMeters * heightInMeters)).toFixed(1);
+      let bmiCategory = '';
+      
+      if (bmi < 18.5) bmiCategory = 'Underweight';
+      else if (bmi < 25) bmiCategory = 'Normal weight';
+      else if (bmi < 30) bmiCategory = 'Overweight';
+      else bmiCategory = 'Obese';
+      
+      bmiInfo = `
+        <div class="col-span-1 md:col-span-2 bg-gradient-primary-bg-start dark:bg-black/30 rounded-lg p-4 mt-2">
+          <p class="text-base font-medium text-text-primary dark:text-white">BMI: ${bmi} - ${bmiCategory}</p>
+        </div>
+      `;
+    }
+    
+    // Create profile display HTML
+    profileDisplay.innerHTML = `
+      <div>
+        <p class="text-sm text-text-secondary dark:text-white/60">Name</p>
+        <p class="text-base font-medium text-text-primary dark:text-white">${profile.name || 'Not set'}</p>
+      </div>
+      
+      <div>
+        <p class="text-sm text-text-secondary dark:text-white/60">Age</p>
+        <p class="text-base font-medium text-text-primary dark:text-white">${profile.age || 'Not set'}</p>
+      </div>
+      
+      <div>
+        <p class="text-sm text-text-secondary dark:text-white/60">Gender</p>
+        <p class="text-base font-medium text-text-primary dark:text-white">${profile.gender || 'Not set'}</p>
+      </div>
+      
+      <div>
+        <p class="text-sm text-text-secondary dark:text-white/60">Height</p>
+        <p class="text-base font-medium text-text-primary dark:text-white">${profile.height ? profile.height + ' cm' : 'Not set'}</p>
+      </div>
+      
+      <div>
+        <p class="text-sm text-text-secondary dark:text-white/60">Weight</p>
+        <p class="text-base font-medium text-text-primary dark:text-white">${profile.weight ? profile.weight + ' kg' : 'Not set'}</p>
+      </div>
+      
+      <div>
+        <p class="text-sm text-text-secondary dark:text-white/60">Diet</p>
+        <p class="text-base font-medium text-text-primary dark:text-white">${profile.diet || 'Not set'}</p>
+      </div>
+      
+      <div>
+        <p class="text-sm text-text-secondary dark:text-white/60">Activity Level</p>
+        <p class="text-base font-medium text-text-primary dark:text-white">${profile.activity || 'Not set'}</p>
+      </div>
+      
+      <div class="col-span-1 md:col-span-2">
+        <p class="text-sm text-text-secondary dark:text-white/60">Medical Conditions</p>
+        <p class="text-base font-medium text-text-primary dark:text-white">${profile.existingConditions || 'None'}</p>
+      </div>
+      
+      <div class="col-span-1 md:col-span-2">
+        <p class="text-sm text-text-secondary dark:text-white/60">Fitness Goals</p>
+        <p class="text-base font-medium text-text-primary dark:text-white">${profile.fitnessGoals || 'Not set'}</p>
+      </div>
+      
+      ${bmiInfo}
+    `;
+  }
+
+  // Save user profile to localStorage
+  function saveUserProfile() {
+    const profile = {
+      name: document.getElementById('name').value,
+      age: document.getElementById('age').value,
+      gender: document.getElementById('gender').value,
+      height: document.getElementById('height').value,
+      weight: document.getElementById('weight').value,
+      diet: document.getElementById('diet').value,
+      activity: document.getElementById('activity').value,
+      existingConditions: document.getElementById('existingConditions').value,
+      fitnessGoals: document.getElementById('fitnessGoals').value
+    };
+    
+    localStorage.setItem('userProfile', JSON.stringify(profile));
+    
+    // Update display and hide form
+    updateProfileDisplay(profile);
+    
+    const profileForm = document.getElementById('profileForm');
+    const profileDisplay = document.getElementById('profileDisplay');
+    
+    profileForm.classList.add('hidden');
+    profileDisplay.classList.remove('hidden');
+    
+    // Add animation effect
+    const profileContainer = document.getElementById('profileFormContainer');
+    profileContainer.classList.add('scale-105');
+    setTimeout(() => {
+      profileContainer.classList.remove('scale-105');
+    }, 300);
+    
+    // Send profile to model for personalization
+    sendProfileToModel(profile);
+  }
+  
+  // Send profile to model for personalization
+  function sendProfileToModel(profile) {
+    // Store profile for model personalization
+    localStorage.setItem('healthsync_model_personalization', JSON.stringify({
+      profile: profile,
+      lastUpdated: new Date().toISOString()
+    }));
+    
+    // Show personalization notification
+    const notification = document.createElement('div');
+    notification.className = 'fixed bottom-4 right-4 bg-primary-500 text-white px-4 py-3 rounded-lg shadow-lg z-50 transition-opacity duration-500';
+    notification.innerHTML = `
+      <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+        </svg>
+        <p>Profile updated! BioMistral is personalizing your experience.</p>
+      </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Remove notification after 3 seconds
+    setTimeout(() => {
+      notification.style.opacity = '0';
+      setTimeout(() => {
+        document.body.removeChild(notification);
+      }, 500);
+    }, 3000);
+  }
+  
+  // Load symptoms from localStorage
+  function loadSymptoms() {
+    const symptoms = JSON.parse(localStorage.getItem('symptoms')) || [];
+    const symptomsList = document.getElementById('symptomsList');
+    const noSymptomsMessage = document.getElementById('noSymptomsMessage');
+    const symptomSummaryText = document.getElementById('symptomSummaryText');
+    
+    if (!symptomsList || !noSymptomsMessage || !symptomSummaryText) return;
+    
+    if (symptoms.length === 0) {
+      noSymptomsMessage.classList.remove('hidden');
+      symptomSummaryText.textContent = 'Complete your symptom tracking to generate a summary for your doctor.';
+      return;
+    }
+    
+    noSymptomsMessage.classList.add('hidden');
+    symptomsList.innerHTML = '';
+    
+    symptoms.forEach((symptom, index) => {
+      const severityClass = getSeverityClass(symptom.severity);
+      const date = new Date(symptom.date);
+      const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+      
+      const symptomElement = document.createElement('div');
+      symptomElement.className = 'bg-white dark:bg-black/30 rounded-lg p-3 shadow-sm';
+      symptomElement.innerHTML = `
+        <div class="flex justify-between items-start">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-3 h-3 rounded-full ${severityClass}"></span>
+              <p class="text-base font-medium text-text-primary dark:text-white">${symptom.name}</p>
+            </div>
+            <p class="text-sm text-text-secondary dark:text-white/60 mt-1">${symptom.notes || 'No notes'}</p>
+            <p class="text-xs text-text-tertiary dark:text-white/40 mt-1">${formattedDate}</p>
+          </div>
+          <div class="flex items-center">
+            <span class="text-sm font-medium ${severityClass.replace('bg-', 'text-')}">${symptom.severity}/10</span>
+            <button class="ml-2 text-red-500 hover:text-red-700 transition-colors" data-index="${index}">
+              <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6h18"></path>
+                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      `;
+      
+      // Add delete functionality
+      const deleteBtn = symptomElement.querySelector('button[data-index]');
+      deleteBtn.addEventListener('click', function() {
+        deleteSymptom(parseInt(this.dataset.index));
+      });
+      
+      symptomsList.appendChild(symptomElement);
+    });
+    
+    // Generate and display symptom summary
+    updateSymptomSummary(symptoms);
+  }
+
+  // Get severity class based on severity level
+  function getSeverityClass(severity) {
+    if (severity <= 3) return 'bg-green-500';
+    if (severity <= 6) return 'bg-yellow-500';
+    if (severity <= 8) return 'bg-orange-500';
+    return 'bg-red-500';
+  }
+
+  // Save symptom to localStorage
+  function saveSymptom() {
+    const name = document.getElementById('symptomName').value.trim();
+    const severity = parseInt(document.getElementById('symptomSeverity').value);
+    const notes = document.getElementById('symptomNotes').value.trim();
+    
+    if (!name) {
+      alert('Please enter a symptom name');
+      return;
+    }
+    
+    const symptoms = JSON.parse(localStorage.getItem('symptoms')) || [];
+    
+    const newSymptom = {
+      name,
+      severity,
+      notes,
+      date: new Date().toISOString()
+    };
+    
+    symptoms.push(newSymptom);
+    localStorage.setItem('symptoms', JSON.stringify(symptoms));
+    
+    // Reset form and hide it
+    document.getElementById('symptomName').value = '';
+    document.getElementById('symptomSeverity').value = 5;
+    document.getElementById('symptomNotes').value = '';
+    
+    const severityValue = document.getElementById('severityValue');
+    if (severityValue) severityValue.textContent = '5';
+    
+    const symptomForm = document.getElementById('symptomForm');
+    const addSymptomBtn = document.getElementById('addSymptomBtn');
+    
+    symptomForm.classList.add('hidden');
+    addSymptomBtn.classList.remove('hidden');
+    
+    // Reload symptoms list
+    loadSymptoms();
+  }
+
+  // Delete symptom from localStorage
+  function deleteSymptom(index) {
+    const symptoms = JSON.parse(localStorage.getItem('symptoms')) || [];
+    
+    if (index >= 0 && index < symptoms.length) {
+      symptoms.splice(index, 1);
+      localStorage.setItem('symptoms', JSON.stringify(symptoms));
+      loadSymptoms();
+    }
+  }
+
+  // Generate symptom summary for doctor
+  function updateSymptomSummary(symptoms) {
+    const symptomSummaryText = document.getElementById('symptomSummaryText');
+    if (!symptomSummaryText) return;
+    
+    if (!symptoms || symptoms.length === 0) {
+      symptomSummaryText.textContent = 'Complete your symptom tracking to generate a summary for your doctor.';
+      return;
+    }
+    
+    // Group symptoms by name
+    const symptomGroups = {};
+    symptoms.forEach(symptom => {
+      if (!symptomGroups[symptom.name]) {
+        symptomGroups[symptom.name] = [];
+      }
+      symptomGroups[symptom.name].push(symptom);
+    });
+    
+    // Generate summary text
+    let summary = 'Patient reports ';
+    const symptomDescriptions = [];
+    
+    Object.keys(symptomGroups).forEach(name => {
+      const group = symptomGroups[name];
+      const avgSeverity = group.reduce((sum, s) => sum + s.severity, 0) / group.length;
+      const frequency = group.length > 1 ? 'recurring' : 'occasional';
+      const severity = avgSeverity <= 3 ? 'mild' : avgSeverity <= 6 ? 'moderate' : 'severe';
+      
+      // Get most recent date
+      const mostRecent = new Date(Math.max(...group.map(s => new Date(s.date))));
+      const daysAgo = Math.floor((new Date() - mostRecent) / (1000 * 60 * 60 * 24));
+      const timeframe = daysAgo === 0 ? 'today' : daysAgo === 1 ? 'yesterday' : `${daysAgo} days ago`;
+      
+      symptomDescriptions.push(`${frequency} ${severity} ${name.toLowerCase()} (last reported ${timeframe})`);
+    });
+    
+    // Format the list grammatically
+    if (symptomDescriptions.length === 1) {
+      summary += symptomDescriptions[0];
+    } else if (symptomDescriptions.length === 2) {
+      summary += `${symptomDescriptions[0]} and ${symptomDescriptions[1]}`;
+    } else {
+      const last = symptomDescriptions.pop();
+      summary += `${symptomDescriptions.join(', ')}, and ${last}`;
+    }
+    
+    // Add pattern analysis if enough data
+    if (symptoms.length >= 3) {
+      summary += '. ' + analyzeSymptomPatterns(symptoms);
+    }
+    
+    symptomSummaryText.textContent = summary + '.';
+  }
+  
+  // Analyze patterns in symptoms
+  function analyzeSymptomPatterns(symptoms) {
+    // Sort symptoms by date
+    const sortedSymptoms = [...symptoms].sort((a, b) => new Date(a.date) - new Date(b.date));
+    
+    // Check for increasing severity
+    const firstFew = sortedSymptoms.slice(0, Math.min(3, sortedSymptoms.length));
+    const lastFew = sortedSymptoms.slice(-Math.min(3, sortedSymptoms.length));
+    
+    const avgSeverityFirst = firstFew.reduce((sum, s) => sum + s.severity, 0) / firstFew.length;
+    const avgSeverityLast = lastFew.reduce((sum, s) => sum + s.severity, 0) / lastFew.length;
+    
+    if (avgSeverityLast - avgSeverityFirst > 1) {
+      return 'Symptoms appear to be worsening over time';
+    } else if (avgSeverityFirst - avgSeverityLast > 1) {
+      return 'Symptoms appear to be improving over time';
+    }
+    
+    return 'Symptom severity has remained relatively stable';
+  }
+  
+  // Update health snapshot based on symptoms
+  function updateHealthSnapshot(symptoms) {
+    const symptomStatus = document.getElementById('symptomStatus');
+    const symptomLastUpdated = document.getElementById('symptomLastUpdated');
+    
+    if (!symptomStatus || !symptomLastUpdated) return;
+    
+    if (!symptoms || symptoms.length === 0) {
+      symptomStatus.textContent = 'None';
+      symptomLastUpdated.textContent = 'No data available';
+      return;
+    }
+    
+    // Calculate average severity of recent symptoms (last 3 days)
+    const threeDaysAgo = new Date();
+    threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
+    
+    const recentSymptoms = symptoms.filter(s => new Date(s.date) >= threeDaysAgo);
+    const avgSeverity = recentSymptoms.length > 0 
+      ? recentSymptoms.reduce((sum, s) => sum + s.severity, 0) / recentSymptoms.length 
+      : 0;
+    
+    // Set status based on severity
+    let status = 'None';
+    if (avgSeverity > 0) {
+      if (avgSeverity <= 3) status = 'Mild';
+      else if (avgSeverity <= 6) status = 'Moderate';
+      else if (avgSeverity <= 8) status = 'Severe';
+      else status = 'Critical';
+    }
+    
+    symptomStatus.textContent = status;
+    
+    // Find most recent symptom
+    if (symptoms.length > 0) {
+      const mostRecent = new Date(Math.max(...symptoms.map(s => new Date(s.date))));
+      const now = new Date();
+      const diffMs = now - mostRecent;
+      const diffMins = Math.floor(diffMs / 60000);
+      const diffHours = Math.floor(diffMins / 60);
+      const diffDays = Math.floor(diffHours / 24);
+      
+      let timeAgo;
+      if (diffMins < 60) {
+        timeAgo = `${diffMins} minute${diffMins !== 1 ? 's' : ''} ago`;
+      } else if (diffHours < 24) {
+        timeAgo = `${diffHours} hour${diffHours !== 1 ? 's' : ''} ago`;
+      } else {
+        timeAgo = `${diffDays} day${diffDays !== 1 ? 's' : ''} ago`;
+      }
+      
+      symptomLastUpdated.textContent = `Last updated: ${timeAgo}`;
+    }
+  }
+
+  // Listen for updates from symptom_tracker.html
+  window.addEventListener('healthsync_record_updated', function(event) {
+    console.log('Health record update received:', event.detail);
+    // Refresh the health records table
+    fetchHealthRecords();
+  });
+  
+  // Also check for updates on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    // Check if there's a latest symptom entry
+    const latestSymptom = localStorage.getItem('healthsync_latest_symptom');
+    if (latestSymptom) {
+      console.log('Found latest symptom entry, refreshing records');
+      fetchHealthRecords();
+    }
+    
+    // Add event listener for the Download Logs button
+    const downloadAllLogsBtn = document.getElementById('downloadAllLogsBtn');
+    if (downloadAllLogsBtn) {
+      downloadAllLogsBtn.addEventListener('click', function() {
+        downloadAllSymptomLogs();
+      });
+    }
+  });
+  
+  // Function to download all symptom logs
+  function downloadAllSymptomLogs() {
+    // Get all symptom records from local storage
+    const symptomRecords = JSON.parse(localStorage.getItem('healthsync_symptoms') || '[]');
+    
+    if (symptomRecords.length === 0) {
+      alert('No symptom logs available to download.');
+      return;
+    }
+    
+    // Create CSV content
+    let csvContent = 'Date,Symptoms,Description,Severity,Timestamp\n';
+    
+    symptomRecords.forEach(record => {
+      // Format each field properly for CSV
+      const date = record.date || '';
+      const symptoms = (record.symptoms || '').replace(/,/g, ';'); // Replace commas with semicolons
+      const description = (record.description || '').replace(/,/g, ';').replace(/\n/g, ' '); // Replace commas and newlines
+      const severity = record.severity || '';
+      const timestamp = record.timestamp || '';
+      
+      csvContent += `${date},${symptoms},${description},${severity},${timestamp}\n`;
+    });
+    
+    // Create a blob and download link
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'healthsync_symptom_logs.csv');
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+  
+  // Function to update the health records table
+  function updateHealthRecordsTable(records) {
+    const tableBody = document.getElementById('healthRecordsTableBody');
+    if (!tableBody) return;
+    
+    // Clear existing records
+    tableBody.innerHTML = '';
+    
+    // Get symptom records from local storage
+    
+    // Create modal container for symptom details if it doesn't exist
+    let modalContainer = document.getElementById('symptomDetailsModal');
+    if (!modalContainer) {
+      modalContainer = document.createElement('div');
+      modalContainer.id = 'symptomDetailsModal';
+      modalContainer.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden';
+      modalContainer.innerHTML = `
+        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-bold text-text-primary dark:text-white">Symptom Details</h3>
+            <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div id="symptomDetailsContent" class="space-y-4">
+            <!-- Content will be dynamically inserted here -->
+          </div>
+          <div class="mt-6 flex justify-end space-x-3">
+            <button id="downloadLogBtn" class="bg-primary-500 text-white px-4 py-2 rounded hover:bg-primary-600">
+              Download Log
+            </button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modalContainer);
+      
+      // Add event listener to close button
+      document.getElementById('closeModalBtn').addEventListener('click', () => {
+        modalContainer.classList.add('hidden');
+      });
+      
+      // Add event listener to download button
+      document.getElementById('downloadLogBtn').addEventListener('click', downloadSymptomLog);
+    }
+    
+    const symptomRecords = JSON.parse(localStorage.getItem('healthsync_symptoms') || '[]');
+    
+    // Function to show symptom details
+    function showSymptomDetails(date, type, details) {
+      const modalContent = document.getElementById('symptomDetailsContent');
+      const modal = document.getElementById('symptomDetailsModal');
+      
+      if (!modalContent || !modal) return;
+      
+      // Find the full symptom data
+      let symptomData = null;
+      if (type.includes('Symptom')) {
+        symptomData = symptomRecords.find(s => {
+          const symptomDate = new Date(s.timestamp).toISOString().split('T')[0];
+          return symptomDate === date;
+        });
+      }
+      
+      // Create content based on available data
+      let content = `
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse">
+            <thead class="bg-gray-100 dark:bg-gray-700">
+              <tr>
+                <th class="border border-gray-200 dark:border-gray-600 px-4 py-2 text-left">Date</th>
+                <th class="border border-gray-200 dark:border-gray-600 px-4 py-2 text-left">Type</th>
+                <th class="border border-gray-200 dark:border-gray-600 px-4 py-2 text-left">Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-200 dark:border-gray-600 px-4 py-2">${date}</td>
+                <td class="border border-gray-200 dark:border-gray-600 px-4 py-2">${type}</td>
+                <td class="border border-gray-200 dark:border-gray-600 px-4 py-2">${details}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      `;
+      
+      // Add additional symptom information if available
+      if (symptomData) {
+        content += `
+          <div class="mt-4">
+            <h4 class="font-bold mb-2">Symptoms Recorded:</h4>
+            <ul class="list-disc pl-5">
+              ${symptomData.selectedSymptoms.map(s => `<li>${s}</li>`).join('')}
+            </ul>
+            
+            ${symptomData.description ? `
+              <h4 class="font-bold mt-3 mb-2">Description:</h4>
+              <p class="bg-gray-50 dark:bg-gray-700 p-3 rounded">${symptomData.description}</p>
+            ` : ''}
+            
+            ${symptomData.imageUrl ? `
+              <h4 class="font-bold mt-3 mb-2">Image:</h4>
+              <img src="${symptomData.imageUrl}" alt="Symptom Image" class="max-w-full h-auto rounded border border-gray-200 dark:border-gray-600">
+            ` : ''}
+            
+            <h4 class="font-bold mt-3 mb-2">Severity:</h4>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4">
+              <div class="bg-primary-500 h-4 rounded-full" style="width: ${symptomData.severity * 10}%"></div>
+            </div>
+            <p class="text-right mt-1">${symptomData.severity}/10</p>
+            
+            <h4 class="font-bold mt-3 mb-2">Recommended Actions:</h4>
+            <ul class="list-disc pl-5">
+              <li>Rest and monitor symptoms</li>
+              <li>Stay hydrated</li>
+              <li>Consider over-the-counter medication if appropriate</li>
+              <li>Consult with healthcare provider if symptoms worsen</li>
+            </ul>
+          </div>
+        `;
+      }
+      
+      modalContent.innerHTML = content;
+      modal.classList.remove('hidden');
+      
+      // Store current symptom data for download
+      modal.dataset.currentSymptom = JSON.stringify({
+        date,
+        type,
+        details,
+        fullData: symptomData
+      });
+    }
+    
+    // Function to download symptom log
+    function downloadSymptomLog() {
+      const modal = document.getElementById('symptomDetailsModal');
+      if (!modal || !modal.dataset.currentSymptom) return;
+      
+      const symptomData = JSON.parse(modal.dataset.currentSymptom);
+      
+      // Create CSV content
+      let csvContent = "data:text/csv;charset=utf-8,";
+      csvContent += "Date,Type,Details,Symptoms,Description,Severity,Recommendations\n";
+      
+      // Add basic data
+      let csvRow = [
+        symptomData.date,
+        symptomData.type,
+        symptomData.details,
+        symptomData.fullData ? symptomData.fullData.selectedSymptoms.join('; ') : '',
+        symptomData.fullData ? symptomData.fullData.description.replace(/,/g, ';').replace(/\n/g, ' ') : '',
+        symptomData.fullData ? symptomData.fullData.severity : '',
+        "Rest; Stay hydrated; Consider medication; Consult healthcare provider if worsening"
+      ];
+      
+      csvContent += csvRow.join(',') + "\n";
+      
+      // Create download link
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", `symptom_log_${symptomData.date}.csv`);
+      document.body.appendChild(link);
+      
+      // Trigger download
+      link.click();
+      document.body.removeChild(link);
+    }
+    
+    // Create combined records array
+    let allEntries = [];
+    
+    // Add event listeners for view details buttons
+    function addViewDetailsListeners() {
+      document.querySelectorAll('.view-details-btn').forEach(button => {
+        button.addEventListener('click', function() {
+          const date = this.dataset.date;
+          const type = this.dataset.type;
+          const details = this.dataset.details;
+          showSymptomDetails(date, type, details);
+        });
+      });
+    }
+    
+    // Add API records if available
+    if (records && records.entries) {
+      // Add each entry to the table
+      records.entries.forEach(entry => {
+        const row = document.createElement('tr');
+        row.className = 'border-b border-gray-100 dark:border-white/5';
+        
+        row.innerHTML = `
+          <td class="px-6 py-4 text-sm text-text-primary dark:text-white">${entry.date}</td>
+          <td class="px-6 py-4 text-sm text-text-primary dark:text-white">${entry.type}</td>
+          <td class="px-6 py-4 text-sm text-text-primary dark:text-white">${entry.details}</td>
+          <td class="px-6 py-4 text-sm">
+            <button class="view-details-btn bg-primary-500 text-white px-3 py-1 rounded text-xs" 
+              data-date="${entry.date}" 
+              data-type="${entry.type}" 
+              data-details="${entry.details}">
+              View Details
+            </button>
+          </td>
+        `;
+        
+        tableBody.appendChild(row);
+      });
+      
+      // Add event listeners to the new buttons
+      addViewDetailsListeners();
+      allEntries = [...records.entries];
+    }
+    
+    // Add symptom records from local storage
+    symptomRecords.forEach(symptom => {
+      allEntries.push({
+        date: symptom.date,
+        type: 'Symptom Log',
+        details: symptom.symptoms + (symptom.severity ? `, ${symptom.severity}` : '')
+      });
+    });
+    
+    // Sort by date (newest first)
+    allEntries.sort((a, b) => new Date(b.date) - new Date(a.date));
+    
+    // Add records to table
+    allEntries.forEach(entry => {
+      const row = document.createElement('tr');
+      row.className = 'border-b border-gray-100 dark:border-white/5';
+      
+      row.innerHTML = `
+        <td class="px-6 py-4 text-sm text-text-primary dark:text-white">${entry.date}</td>
+        <td class="px-6 py-4 text-sm text-text-primary dark:text-white">${entry.type}</td>
+        <td class="px-6 py-4 text-sm text-text-primary dark:text-white">${entry.details}</td>
+      `;
+      
+      tableBody.appendChild(row);
+    });
+  }
+
+  // Function to update the activity timeline
+  function updateActivityTimeline(records) {
+    if (!records || !records.entries) return;
+    
+    const timelineContainer = document.querySelector('.space-y-4');
+    if (!timelineContainer) return;
+    
+    // Clear existing timeline items
+    timelineContainer.innerHTML = '';
+    
+    // Add new timeline items (limit to 5 most recent)
+    const recentEntries = records.entries.slice(0, 5);
+    
+    recentEntries.forEach((entry, index) => {
+      const timelineItem = document.createElement('div');
+      timelineItem.className = 'grid grid-cols-[auto_1fr] gap-x-4';
+      
+      // Determine icon based on entry type
+      let icon = '';
+      if (entry.type.includes('Symptom')) {
+        icon = '<path d="M232,128a104,104,0,0,1-208,0c0-41,23.81-78.36,60.66-95.27a8,8,0,0,1,6.68,14.54C60.15,61.59,40,93.27,40,128a88,88,0,0,0,176,0c0-34.73-20.15-66.41-51.34-80.73a8,8,0,0,1,6.68-14.54C208.19,49.64,232,87,232,128Z"></path>';
+      } else if (entry.type.includes('Chat')) {
+        icon = '<path d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM84,116a12,12,0,1,0,12,12A12,12,0,0,0,84,116Zm88,0a12,12,0,1,0,12,12A12,12,0,0,0,172,116Zm60,12A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.53a7.85,7.85,0,0,1,2.53-.42,8,8,0,0,1,4,1.08A88,88,0,0,0,216,128Z"></path>';
+      } else if (entry.type.includes('Nutrition')) {
+        icon = '<path d="M224,104h-8.37a88,88,0,0,0-175.26,0H32a8,8,0,0,0-8,8,104.35,104.35,0,0,0,56,92.28V208a16,16,0,0,0,16,16h64a16,16,0,0,0,16-16v-3.72A104.35,104.35,0,0,0,232,112,8,8,0,0,0,224,104Zm-24.46,0H148.12a71.84,71.84,0,0,1,41.27-29.57A71.45,71.45,0,0,1,199.54,104ZM173.48,56.23q2.75,2.25,5.27,4.75a87.92,87.92,0,0,0-49.15,43H100.1A72.26,72.26,0,0,1,168,56C169.83,56,171.66,56.09,173.48,56.23ZM128,40a71.87,71.87,0,0,1,19,2.57A88.36,88.36,0,0,0,83.33,104H56.46A72.08,72.08,0,0,1,128,40Zm36.66,152A8,8,0,0,0,160,199.3V208H96v-8.7A8,8,0,0,0,91.34,192a88.29,88.29,0,0,1-51-72H215.63A88.29,88.29,0,0,1,164.66,192Z"></path>';
+      }
+      
+      timelineItem.innerHTML = `
+        <div class="flex flex-col items-center">
+          <div class="w-px bg-primary-500/20 ${index === 0 ? 'h-0' : 'h-4'}"></div>
+          <div class="text-primary-500">
+            <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+              ${icon}
+            </svg>
+          </div>
+          <div class="w-px bg-primary-500/20 flex-grow"></div>
+        </div>
+        <div>
+          <p class="text-text-primary dark:text-white font-medium">${entry.type}: ${entry.details.split(',')[0]}</p>
+          <p class="text-sm text-text-secondary dark:text-white/60">${entry.date}</p>
+        </div>
+      `;
+      
+      timelineContainer.appendChild(timelineItem);
+    });
+  }
+
+  // Function to update the insights section
+  function updateInsights(healthData) {
+    if (!healthData || !healthData.insights) return;
+    
+    const insightsContainer = document.querySelector('.space-y-4.text-sm.text-text-secondary.dark\\:text-white\\/80');
+    if (!insightsContainer) return;
+    
+    // Clear existing insights
+    insightsContainer.innerHTML = '';
+    
+    // Add new insights
+    healthData.insights.forEach(insight => {
+      const insightElement = document.createElement('p');
+      insightElement.textContent = insight;
+      insightsContainer.appendChild(insightElement);
+    });
+  }
+
+  // Function to update the trends section
+  function updateTrends(healthData) {
+    if (!healthData || !healthData.trends) return;
+    
+    // Update symptom trends
+    const symptomTrendValue = document.querySelector('.rounded-lg.border.border-gray-200.dark\\:border-white\\/10 .text-3xl.font-bold');
+    const symptomTrendChange = document.querySelector('.rounded-lg.border.border-gray-200.dark\\:border-white\\/10 .font-medium');
+    
+    if (symptomTrendValue && healthData.trends.symptoms) {
+      symptomTrendValue.textContent = healthData.trends.symptoms.status;
+      symptomTrendChange.textContent = healthData.trends.symptoms.change;
+      symptomTrendChange.className = `font-medium ${parseFloat(healthData.trends.symptoms.change) > 0 ? 'text-accent-warm' : 'text-primary-500'}`;
+    }
+    
+    // Update nutrition trends
+    const nutritionTrendValue = document.querySelectorAll('.rounded-lg.border.border-gray-200.dark\\:border-white\\/10 .text-3xl.font-bold')[1];
+    const nutritionTrendChange = document.querySelectorAll('.rounded-lg.border.border-gray-200.dark\\:border-white\\/10 .font-medium')[1];
+    
+    if (nutritionTrendValue && healthData.trends.nutrition) {
+      nutritionTrendValue.textContent = healthData.trends.nutrition.status;
+      nutritionTrendChange.textContent = healthData.trends.nutrition.change;
+      nutritionTrendChange.className = `font-medium ${parseFloat(healthData.trends.nutrition.change) > 0 ? 'text-accent-warm' : 'text-primary-500'}`;
+    }
+  }
+
+  // Initialize the page
+  async function initPage() {
+    // Load user profile
+    loadUserProfile();
+    
+    // Load symptoms
+    loadSymptoms();
+    
+    // Fetch health records
+    const healthData = await fetchHealthRecords();
+    
+    // Update UI
+    if (healthData) {
+      updateHealthRecordsTable(healthData);
+      updateActivityTimeline(healthData);
+      updateInsights(healthData);
+      updateTrends(healthData);
+    }
+    
+    // Initialize profile form functionality
+    const profileForm = document.getElementById('profileForm');
+    const profileDisplay = document.getElementById('profileDisplay');
+    const editProfileBtn = document.getElementById('editProfileBtn');
+    const cancelProfileBtn = document.getElementById('cancelProfileBtn');
+    const saveProfileBtn = document.getElementById('saveProfileBtn');
+    
+    if (editProfileBtn) {
+      editProfileBtn.addEventListener('click', () => {
+        profileForm.classList.remove('hidden');
+        profileDisplay.classList.add('hidden');
+      });
+    }
+    
+    if (cancelProfileBtn) {
+      cancelProfileBtn.addEventListener('click', () => {
+        profileForm.classList.add('hidden');
+        profileDisplay.classList.remove('hidden');
+      });
+    }
+    
+    if (saveProfileBtn) {
+      profileForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        saveUserProfile();
+      });
+    }
+    
+    // Initialize symptom tracker functionality
+    const addSymptomBtn = document.getElementById('addSymptomBtn');
+    const symptomForm = document.getElementById('symptomForm');
+    const cancelSymptomBtn = document.getElementById('cancelSymptomBtn');
+    const saveSymptomBtn = document.getElementById('saveSymptomBtn');
+    const symptomSeverity = document.getElementById('symptomSeverity');
+    const severityValue = document.getElementById('severityValue');
+    
+    if (symptomSeverity && severityValue) {
+      symptomSeverity.addEventListener('input', function() {
+        severityValue.textContent = this.value;
+        
+        // Update color based on severity
+        severityValue.className = 'ml-2 font-medium';
+        if (this.value <= 3) {
+          severityValue.classList.add('text-green-500');
+        } else if (this.value <= 6) {
+          severityValue.classList.add('text-yellow-500');
+        } else if (this.value <= 8) {
+          severityValue.classList.add('text-orange-500');
+        } else {
+          severityValue.classList.add('text-red-500');
+        }
+      });
+      
+      // Initialize with default color
+      const defaultValue = symptomSeverity.value;
+      severityValue.className = 'ml-2 font-medium';
+      if (defaultValue <= 3) {
+        severityValue.classList.add('text-green-500');
+      } else if (defaultValue <= 6) {
+        severityValue.classList.add('text-yellow-500');
+      } else if (defaultValue <= 8) {
+        severityValue.classList.add('text-orange-500');
+      } else {
+        severityValue.classList.add('text-red-500');
+      }
+    }
+    
+    if (addSymptomBtn) {
+      addSymptomBtn.addEventListener('click', () => {
+        symptomForm.classList.remove('hidden');
+        addSymptomBtn.classList.add('hidden');
+      });
+    }
+    
+    if (cancelSymptomBtn) {
+      cancelSymptomBtn.addEventListener('click', () => {
+        symptomForm.classList.add('hidden');
+        addSymptomBtn.classList.remove('hidden');
+      });
+    }
+    
+    if (saveSymptomBtn) {
+      saveSymptomBtn.addEventListener('click', saveSymptom);
+    }
+    
+    // Add animation classes
+    document.querySelectorAll('.bg-gradient-primary-bg').forEach(el => {
+      el.classList.add('transition-all', 'duration-500', 'hover:shadow-md');
+    });
+  }
+
+  // BioMistral auto-logging functionality
+  function autoLogSymptoms() {
+    // This function would normally call BioMistral API
+    // For demo purposes, we'll simulate auto-logging
+    const symptoms = [
+      { name: "Fatigue", severity: 6, date: new Date(), notes: "Auto-detected from sleep patterns" },
+      { name: "Headache", severity: 4, date: new Date(Date.now() - 86400000), notes: "Auto-detected from activity patterns" },
+      { name: "Stress", severity: 7, date: new Date(Date.now() - 172800000), notes: "Auto-detected from heart rate variability" }
+    ];
+    
+    localStorage.setItem('autoLoggedSymptoms', JSON.stringify(symptoms));
+    
+    // Add to health records
+    const healthRecords = {
+      entries: [
+        { date: new Date().toISOString().split('T')[0], type: 'Auto-detected Symptom', details: `Fatigue, Severity: 6/10` },
+        { date: new Date(Date.now() - 86400000).toISOString().split('T')[0], type: 'Auto-detected Symptom', details: `Headache, Severity: 4/10` },
+        { date: new Date(Date.now() - 172800000).toISOString().split('T')[0], type: 'Auto-detected Symptom', details: `Stress, Severity: 7/10` }
+      ]
+    };
+    
+    updateHealthRecordsTable(healthRecords);
+    return symptoms;
+  }
+  
+  // Modified initialization function
+  function initPageWithBioMistral() {
+    // Run original initialization first to set up the UI
+    initPage();
+    
+    // Then auto-log symptoms using BioMistral
+    // This prevents the UI from reverting after initial load
+    setTimeout(() => {
+      autoLogSymptoms();
+    }, 100);
+  }
+
+  // Run initialization when DOM is loaded
+  document.addEventListener('DOMContentLoaded', initPageWithBioMistral);
+</script>
+
+</body></html>
